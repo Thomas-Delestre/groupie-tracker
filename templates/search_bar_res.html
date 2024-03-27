@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <link href="/cmd/main.go">
+        <link rel="stylesheet" href="/style/style.css">
+        <!-- la ligne 5 permet de lier notre go à ce fichier hmtl-->
+        <title>Groupie-Tracker</title>
+        <link rel="icon" type="image/png" href="style/ressources/jojo_star.jpg">
+    </head>
+    <body>
+        <!-- boutton reset recherche / home page -->
+        <header>
+            <div class="jojo_header">
+                <img src="/style/ressources/jotaro_face-remove.jpg" alt="Jojo's_disc_face">
+            </div>
+            <h1 class="title">GROUPIE-TRACKER</h1>
+            <a href="http://localhost:8080/">
+                <button class="bouton">
+                    <img src="../style/ressources/to_be_continued_reduce.png" alt="Acceuil" style="width: 130px; height: 40px;">
+                </button>
+            </a>
+        </header>
+
+        <!-- Données filtrées -->
+        <main>
+            <div class="body_content">
+                <div class="jojo_face">
+                    <img src="/style/ressources/jotaro_face-remove.jpg" alt="Jojo's_disc_face">
+                </div>
+                <div class="grid-container">
+                    {{range .}}
+                    <div>
+                        <a href="/artist?id={{.ID}}">
+                            <div class="circle" style="background-image: url('{{.Image}}');">
+                                <div class="namecard">
+                                    <div class="namecard_text">{{.Name}}</div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    {{end}}
+                </div>
+            </div>
+        </main>
+        <footer>
+            <h1 class="footer-title">Creators</h1>
+            <div class="footer-text">
+                <p>Raphael Lovergne</p>
+                <p>Axelle Fouquemberg</p>
+                <p>Thomas Delestre</p>
+                <p>Brice Delemos dit Pereira</p>
+            </div>
+        </footer>
+    </body>
+</html>

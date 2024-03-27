@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <title>{{.Name}}</title>
+        <link rel="stylesheet" href="style/style_2.css">
+        <link rel="icon" type="image/png" href="style/ressources/jotaro_hand_icon.jpg">
+    </head>
+    <body>
+        <header>
+            <!-- Boutton de retour à la page Home -->
+            <div class="position-abs">
+                <a href="http://localhost:8080/">
+                    <button class="bouton">
+                        <img src="../style/ressources/to_be_continued_reduce.png" alt="Acceuil">
+                        <span class="bouton-text">HOME</span>
+                    </button>
+                </a>
+            </div> 
+            <!-- Rappel artist selectionné -->
+            <div class="content_h">
+                <h1>{{.Name}}</h1>
+                <br>
+                <img src="{{.Image}}" alt="Artist Image">
+            </div>
+        </header>
+
+        <section>
+            <div class="jojo">
+                <img src="../style/ressources/jotaro_finger-remove.jpg" alt="jojo's">
+            </div>        
+            <!-- Infos globales -->
+            <div class="list_adjust">
+                <details>
+                    <summary>Members</summary> <br>
+                    <ul>
+                        {{range .Members}}
+                        <li>{{.}}</li><br>
+                        {{end}}
+                    </ul>
+                </details> 
+                <br>
+                <details>
+                    <summary> Creation Date </summary> <br>
+                    <ul>
+                        <li>{{.Creationdate}}</li>
+                    </ul>
+                <br>
+                </details> 
+                <br>
+                <details>
+                    <summary>First Album</summary><br>
+                    <ul>
+                        <li>{{.Firstalbum}}</li>
+                    </ul>
+                    <br>
+                </details> 
+                <br>
+                <details>
+                    <!-- listing dates pour chaque locations -->
+                    <summary>Concert Dates</summary> <br>
+                    <ul>
+                        {{range $key, $value := .DatesLocations}}
+                        <li>{{$key}}:
+                            <ul>
+                                {{range $value}}
+                                <li style="padding-left: 40px;">{{ .}}</li>
+                                {{ end }}
+                                <br>
+                            </ul>
+                        </li>
+                        {{end}}
+                    </ul>
+                    <br>
+                    <br>
+                </details>
+            </div>
+        </section>        
+    </body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <link href="/cmd/main.go">
+        <link rel="stylesheet" href="/style/style.css">
+        <title>Groupie-Tracker</title>
+        <link rel="icon" type="image/png" href="style/ressources/jojo_star.jpg">
+    </head>
+
+    <body>
+        <header>
+            <div class="jojo_header">
+                <img src="/style/ressources/jotaro_face-remove.jpg" alt="Jojo's_disc_face">
+            </div>
+
+            <h1 class="title">GROUPIE-TRACKER</h1>
+            <!-- Barre de recherche -->
+            <form action="/searched_artist" method="post">
+                <input class="search_bar" type="search" name="search_bar" placeholder="search..." autocomplete="on" list="group_list"/>
+                <button class="search_filter_button">Search</button>
+            </form>
+            <datalist id="group_list">
+               {{range .Data}}
+                <option value="{{.Name}}"></option>
+                    {{range .Members}}
+                <option value="{{.}}"></option>
+                    {{end}}
+                    {{range .Locations}}
+                <option value="{{.}}"></option>
+                    {{end}}
+                <option value="{{.Firstalbum}}"></option>
+                <option value="{{.Creationdate}}"></option>
+                {{end}}
+            </datalist>
+        </header>
+
+        <main>
+            <div class="body_content">
+                <div class="jojo_face">
+                    <img src="/style/ressources/jotaro_face-remove.jpg" alt="Jojo's_disc_face">
+                </div>
+
+                <!-- Affichage artists en flexbox -->
+                <div class="grid-container">
+                    {{range .Data}}
+                    <div>
+                        <a href="/artist?id={{.ID}}">
+                            <div class="circle" style="background-image: url('{{.Image}}');">
+                                <div class="namecard">
+                                    <div class="namecard_text">{{.Name}}</div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    {{end}}
+                </div>
+                <br>
+                <div class="formulaire">
+                    <form action="/filtered_artists" method="post">
+                        <h2> Filters </h2> <span><button class="search_filter_button">Submit</button></span>
+                        <div>
+                            <p>Artist Creation Date </p>
+                            <label for="CD_min_value">Min: <span id="Creation_date_min_display"></span></label>
+                            <br>
+                            <input type="range" id="Creation_date_min" name="CD_min_value" min="1957" max="2020" value="1957" step="1">                            <br>
+                            <label for="CD_max_value">Max: <span id="Creation_date_max_display"></span></label>
+                            <br>
+                            <input type="range" id="Creation_date_max" name="CD_max_value" min="1957" max="2020" value="2020" step="1">
+                        </div>
+                        <br>
+                        <div>
+                            <p>First Album Date</p>
+                            <label for="FA_min_value">Min: <span id="FA_min_display"></span></label>
+                            <br>
+                            <input type="range" id="FA_min" name="FA_min_value" min="1957" max="2020" value="1957" step="1">
+                            <br>
+                            <label for="FA_max_value">Max: <span id="FA_max_display"></span></label>
+                            <br>
+                            <input type="range" id="FA_max" name="FA_max_value" min="1957" max="2020" value="2020" step="1">                        </div>
+
+                        <script>
+
+                            const CD_min_input = document.getElementById('Creation_date_min');
+                            const CD_min_input_display = document.getElementById('Creation_date_min_display');
+                            CD_min_input.addEventListener('input', function() {
+                            CD_min_input_display.textContent = CD_min_input.value;
+                            });
+
+                            const CD_max_input = document.getElementById('Creation_date_max');
+                            const CD_max_input_display = document.getElementById('Creation_date_max_display') 
+                            CD_max_input.addEventListener('input', function() {
+                            CD_max_input_display.textContent = CD_max_input.value;
+                            });
+
+                            const FA_min_input = document.getElementById('FA_min');
+                            const FA_min_input_display = document.getElementById('FA_min_display');
+                            FA_min_input.addEventListener('input', function() {
+                                FA_min_input_display.textContent = FA_min_input.value;
+                            });
+
+                            const FA_max_input = document.getElementById('FA_max');
+                            const FA_max_input_display = document.getElementById('FA_max_display');
+                            FA_max_input.addEventListener('input', function() {
+                                FA_max_input_display.textContent = FA_max_input.value;
+                            });
+
+                        </script>
+
+                        <br>
+                        <div>
+                            <p>Number of members:</p>
+                            <label for="box_1_mbr">1 </label>
+                            <input type="checkbox" id="box_1_mbr" name="box_1_mbr">
+                            
+                            <label for="box_2_mbr">2 </label>
+                            <input type="checkbox" id="box_2_mbr" name="box_2_mbr">
+                            
+                            <label for="box_3_mbr">3 </label>
+                            <input type="checkbox" id="box_3_mbr" name="box_3_mbr">
+                            
+                            <label for="box_4_mbr">4 </label>
+                            <input type="checkbox" id="box_4_mbr" name="box_4_mbr">
+                            <br>
+                            <label for="box_5_mbr">5 </label>
+                            <input type="checkbox" id="box_5_mbr" name="box_5_mbr">
+                            
+                            <label for="box_6_mbr"> 6 </label>
+                            <input type="checkbox" id="box_6_mbr" name="box_6_mbr">
+                            
+                            <label for="box_7_mbr"> 7 </label>
+                            <input type="checkbox" id="box_7_mbr" name="box_7_mbr">
+                        </div>
+                        <br>
+                        <div>
+                            <select name="location" aria-label="Default select example">
+                                <option selected value="All">Concerts Locations</option>
+                                {{range .Filtered_loc}}
+                                <option value="{{.}}">{{.}}</option>
+                                {{end}}
+                            </select>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <h1 class="footer-title">Creators</h1>
+            <div class="footer-text">
+                <p>Raphael Lovergne</p>
+                <p>Axelle Fouquemberg</p>
+                <p>Thomas Delestre</p>
+                <p>Brice Delemos dit Pereira</p>
+            </div>
+        </footer>
+    </body>
+</html>

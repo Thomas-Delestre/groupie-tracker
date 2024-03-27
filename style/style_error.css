@@ -1,0 +1,68 @@
+
+@font-face {
+    font-family: "Fatpen" ;
+    src: url(../style/ressources/fatpen.ttf) format("opentype");
+}
+
+@font-face {
+    font-family: "Handwrit" ;
+    src: url(../style/ressources/Handwriting-Regular.otf) format("opentype");
+}
+
+html {
+    background-color: rgba(245, 237, 226, 255);
+    width: 100%;
+    height: auto;
+}
+
+.result {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-size: larger;
+    padding: 10px;
+
+}
+
+.joline {
+    object-position: right bottom;
+    position: fixed; /* Changed from absolute to fixed */
+    right: 0; /* Added this line */
+    bottom: 0; /* Added this line */
+    width: auto;
+    max-height: 50%; /* Changed from height to max-height for responsiveness */
+}
+
+main {
+    width: 100%;
+    height: 100%;
+    display: flex; /* Added this line */
+    flex-direction: column; /* Added this line */
+    justify-content: center; /* Added this line */
+    align-items: center; /* Added this line */
+}
+
+.bouton {
+    background-color: rgba(245, 237, 226, 255);
+    background-size: 15%;
+    margin-top: 2%;
+    margin-left: 2%;
+    cursor: pointer ;
+    border: none;
+    width: 330px;
+    height: 50px;
+    position: relative;
+}
+
+.bouton-text {
+    position: absolute;
+    top: 40%;
+    left: 0%;
+    color: white;
+    font-weight: bold;
+    font-size: 40px;
+    font-family: Handwrit;
+    width: 100%;
+    text-align: center;
+    }

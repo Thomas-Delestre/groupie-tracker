@@ -1,0 +1,176 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+    font-family: "Handwrit" ;
+    src: url(../style/ressources/Handwriting-Regular.otf) format("opentype");
+}
+
+@font-face {
+    font-family: "Elena";
+    src: url(../style/ressources/ElenaLight-vL17.otf) format("opentype");
+}
+
+html {
+    background-color: rgba(245, 237, 226, 255);
+    height: 100vh;
+    width: 100vw;
+}
+
+header {
+    width: 100%;
+    height: auto;
+    position: relative;
+}
+
+summary {
+    cursor: pointer;
+}
+
+.list_change {
+    padding-left: 40px;
+}
+
+.position-abs {
+    position: absolute;
+    top: -70px;
+}
+
+.bouton {
+    background-color: rgba(245, 237, 226, 255);
+    background-size: 15%;
+    margin-top: 2%;
+    margin-left: 2%;
+    cursor: pointer ;
+    border: none;
+    width: 330px;
+    height: 50px;
+    position: relative;
+}
+
+.bouton-text {
+    position: absolute;
+    top: 40%;
+    left: 0%;
+    color: white;
+    font-weight: bold;
+    font-size: 40px;
+    font-family: Handwrit;
+    width: 100%;
+    text-align: center;
+    }
+
+.content_h {
+    height: 90%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 70px;
+
+}
+
+.content_h img {
+    width: 200px;
+    height: auto;
+}
+
+h1 {
+    justify-content: center;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 70px;
+    font-family: Elena;
+}
+
+
+section {
+
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+    align-items: flex-start;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin-top: 50px;
+    font-size: 35px;
+    width: 100%;
+
+}
+
+section details[open] ul li {
+    list-style-type: none;
+    font-size: 25px;
+    padding-left: 47px;
+}
+
+.list_adjust {
+    width: calc(45% - 120px);
+    padding-top: 40px;
+    padding-left: 120px;
+}
+
+.jojo {
+    position: relative;
+    justify-content: flex-start;
+    width: 23%;
+}
+
+.jojo img {
+    width: 95%;
+    height: auto;
+}
+
+@media screen and (max-width: 900px ) {
+    .jojo {
+        display: none; /* Supprime l'image jotaro_finger */
+    }
+
+    section {
+        justify-content: center; /* Centre la section horizontalement */
+        align-items: center; /* Centre la section verticalement */
+    }
+
+    .list_adjust {
+        padding-left: 0px;
+    }
+}
+
+@media screen and (max-width: 680px ) { 
+
+    section {
+        font-size: 20px;
+    }
+
+    section details[open] ul li { 
+        font-size: 15px;
+        padding-left: 10px;
+    }
+}
+
+
+/*
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 20px;
+    grid-row-gap: 0px;
+    grid-template-rows: 10% 10% 30%;
+    width: 50%;
+    height: 50%;
+    margin-left: 10%;
+    border: 1px solid black ;
+    overflow: auto;
+
+}
+
+
+.div_members { grid-area: 1 / 1 / 2 / 2; }
+.div_CA { grid-area: 1 / 2 / 2 / 3; }
+.div_FA { grid-area: 1 / 3 / 2 / 4; }
+.div_concert { grid-area: 1 / 4 / 2 / 5; }
+
+*/
