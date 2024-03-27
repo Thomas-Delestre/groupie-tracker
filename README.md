@@ -3,7 +3,7 @@
 Groupie-Tracker is a project written in Golang aimed at receiving a given [API](https://groupietrackers.herokuapp.com/api) and manipulating the contained data to create a website displaying the information. The provided APIs contain music group names, along with their albums, artists, creation dates, first album dates, and concert dates.
 This project was carried out as part of the training : [Zone01](https://zone01rouennormandie.org/).
 <p align="center">
-  <img src="picturesReadme/home.png" alt="home">
+  <img src="picturesReadme/home2.png" alt="home">
 </p>
 
 ## Features
