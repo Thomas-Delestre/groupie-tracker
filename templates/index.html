@@ -66,7 +66,7 @@
                             <input type="range" id="Creation_date_min" name="CD_min_value" min="1957" max="2020" value="1957" step="1">                            <br>
                             <label for="CD_max_value">Max: <span id="Creation_date_max_display"></span></label>
                             <br>
-                            <input type="range" id="Creation_date_max" name="CD_max_value" min="1957" max="2020" value="2020" step="1">
+                            <input type="range" id="Creation_date_max" name="CD_max_value" min="1957" max="2020" value="2020" step="1" >
                         </div>
                         <br>
                         <div>
@@ -133,7 +133,7 @@
                         </div>
                         <br>
                         <div>
-                            <select name="location" aria-label="Default select example">
+                            <select name="location" aria-label="Default select example" class="location-selector">
                                 <option selected value="All">Concerts Locations</option>
                                 {{range .Filtered_loc}}
                                 <option value="{{.}}">{{.}}</option>

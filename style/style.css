@@ -34,17 +34,18 @@ header {
     position: relative;
 }
 .search_filter_button {
-    background-color: #BDFEC4;
-    color: black;
+    background-color: black;
+    color: white;
     border: none;
     padding: 3px 7px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 12px;
+    font-size: 15px;
     margin: 4px 2px;
     cursor: pointer;
     border-radius: 5px;
+    font-weight: bolder;
     font-family: 'Courier New', Courier, monospace
 }
 .search_bar {
@@ -53,11 +54,13 @@ header {
     border-radius: 20px;
     outline: none;
     width: 200px; /* Ajustez la largeur selon vos besoins */
+
     transition: border-color 0.3s;
 }
 .jojo_header {
     display: none;
 }
+
 header h1 {
     margin : 10px 0;
 }
@@ -156,6 +159,26 @@ max-height: 100%;
     padding-top: 49%;
     
 }
+
+input[type="range"] {
+    accent-color:#6fc2c8;
+}
+
+.location-selector {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #6fc2c8;
+    color: black; 
+    padding: 5px 10px; 
+    border: none; 
+    border-radius: 20px; 
+    width: 190px;
+    text-align: center;
+}
+
+.location-selector:hover {
+    background-color: #e9e9ed;
+}
+/* Style des options survolées */
 footer {
     font-family: 'Courier New', Courier, monospace;
 }
